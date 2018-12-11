@@ -101,7 +101,7 @@ describe('Recognizer', () => {
       const process = await recognizer.process({}, 'en', 'What is your age?');
       expect(process.intent).toEqual('agent.age');
       expect(process.language).toEqual('English');
-      expect(process.score).toBeGreaterThan(0.95);
+      expect(process.score).toBeGreaterThan(0.7);
     });
     test('It should autodetect the language if not provided', async () => {
       const recognizer = new Recognizer();
@@ -113,7 +113,7 @@ describe('Recognizer', () => {
       );
       expect(process.intent).toEqual('agent.age');
       expect(process.language).toEqual('English');
-      expect(process.score).toBeGreaterThan(0.95);
+      expect(process.score).toBeGreaterThan(0.7);
     });
     test('It should create a new temporal context if not provided', async () => {
       const recognizer = new Recognizer();
@@ -125,7 +125,7 @@ describe('Recognizer', () => {
       );
       expect(process.intent).toEqual('agent.age');
       expect(process.language).toEqual('English');
-      expect(process.score).toBeGreaterThan(0.95);
+      expect(process.score).toBeGreaterThan(0.7);
     });
     test('If the intent is None then the answer should not be calculated', async () => {
       const recognizer = new Recognizer();
@@ -149,7 +149,7 @@ describe('Recognizer', () => {
         (error, result) => {
           expect(result.intent).toEqual('agent.age');
           expect(result.language).toEqual('English');
-          expect(result.score).toBeGreaterThan(0.95);
+          expect(result.score).toBeGreaterThan(0.7);
           done();
         }
       );
@@ -163,7 +163,7 @@ describe('Recognizer', () => {
         (error, result) => {
           expect(result.intent).toEqual('agent.age');
           expect(result.language).toEqual('English');
-          expect(result.score).toBeGreaterThan(0.95);
+          expect(result.score).toBeGreaterThan(0.7);
           done();
         }
       );
@@ -182,7 +182,7 @@ describe('Recognizer', () => {
       recognizer.recognize(session, (err, result) => {
         expect(result.intent).toEqual('agent.age');
         expect(result.language).toEqual('English');
-        expect(result.score).toBeGreaterThan(0.95);
+        expect(result.score).toBeGreaterThan(0.7);
         done();
       });
     });
