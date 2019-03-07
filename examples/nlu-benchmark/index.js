@@ -6,7 +6,6 @@ const WebApplicationCorpus = require('./WebApplicationCorpus.json');
 NlpUtil.useAlternative.en = true;
 
 const withEntities = true;
-const fullEntities = false;
 const entityUtterance = false;
 const sentenceUtterance = true;
 
@@ -17,7 +16,7 @@ async function scoreCorpus(corpus) {
   for (let i = 0; i < sentences.length; i += 1) {
     const sentence = sentences[i];
     let { text } = sentence;
-    if (fullEntities || sentence.training) {
+    if (sentence.training) {
       if (sentence.entities && sentence.entities.length > 0) {
         for (let j = 0; j < sentence.entities.length; j += 1) {
           const entity = sentence.entities[j];
@@ -41,7 +40,7 @@ async function scoreCorpus(corpus) {
   for (let i = 0; i < sentences.length; i += 1) {
     const sentence = sentences[i];
     let { text } = sentence;
-    if (fullEntities || sentence.training) {
+    if (sentence.training) {
       if (sentence.entities && sentence.entities.length > 0) {
         for (let j = 0; j < sentence.entities.length; j += 1) {
           const entity = sentence.entities[j];
